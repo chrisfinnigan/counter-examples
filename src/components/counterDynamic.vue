@@ -7,27 +7,39 @@
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
+  import { mapState } from "vuex";
   export default {
     name: "dynamicCounter",
     methods: {
       incrementCounter() {
-        //This allows us to dynamically set the action to be called with value in prop `incrementAction`
-        this.$store.dispatch(this.incrementAction, {
-          by: this.by,
-          duration: this.duration
-        });
+        try {
+          //This allows us to dynamically set the action to be called with value in prop `incrementAction`
+          this.$store.dispatch(this.incrementAction, {
+            by: this.by,
+            duration: this.duration,
+            storeKey: this.storeKey
+          });
+        } catch (error) {
+          console.log(error)
+        }
       },
       decrementCounter() {
-        //This allows us to dynamically set the action to be called by each button click `decrementAction`
-        this.$store.dispatch(this.decrementAction, {
-          by: this.by,
-          duration: this.duration
-        });
+        try {
+          //This allows us to dynamically set the action to be called by each button click `decrementAction`
+          this.$store.dispatch(this.decrementAction, {
+            by: this.by,
+            duration: this.duration,
+            storeKey: this.storeKey
+          });
+        } catch (error) {
+          console.log(error)
+        }
       }
     },
     computed: {
-      ...mapGetters(["stateDump"]),
+      ...mapState({
+        stateDump: state => state
+      }),
       counter() {
         //This allows us to dynamically set the action to be called by each button click
         return this.$store.getters[this.counterGetter];
@@ -38,7 +50,8 @@
       duration: Number,
       incrementAction: String,
       decrementAction: String,
-      counterGetter: String
+      counterGetter: String,
+      storeKey: String
     }
   };
 </script>

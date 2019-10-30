@@ -1,13 +1,13 @@
 <template>
   <div class="counter">
-    <button @click='asyncDecrement({by: by, duration: duration})'>-{{by}}</button>
-    <span class="counterOutput">{{getCounterInteger}}</span>
-    <button @click='asyncIncrement({by: by, duration: duration})'>+{{by}}</button> 
+    <button @click='asyncDecrement({by: by, duration: duration, vuexKey: vuexKey})'>-{{by}}</button>
+    <span class="counterOutput">{{counter}}</span>
+    <button @click='asyncIncrement({by: by, duration: duration, vuexKey: vuexKey})'>+{{by}}</button> 
   </div>
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapActions, mapState } from 'vuex'
   export default {
     name: 'StaticCounter',
     methods: {
@@ -17,14 +17,14 @@
       ])
     },
     computed: {
-      ...mapGetters([
-        'getCounterInteger',
-        'stateDump'
-      ])
+      ...mapState({
+        counter: state => state[this.$prop.vuexKey]
+      })
     },
     props: {
       by: Number,
       duration: Number,
+      vuexKey: String
     }
   }
 </script>

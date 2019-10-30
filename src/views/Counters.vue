@@ -1,26 +1,15 @@
 <template>
   <div class="home">
-
-    <!-- Counter With Fixed Actions and Getters -->
+    <!-- Counter With Configurable Actions and Getters : Outputting Integer Counter Value -->
     <card 
-      :header='"Actions and Getter Hard Coded In Component"' 
-      :theme='"light"'
-    >
-      <counterStatic
-        :by='5'
-        :duration='100'
-      />
-    </card>
-
-     <!-- Counter With Configurable Actions and Getters : Outputting Integer Counter Value -->
-    <card 
-      :header='"Actions and Getter Passed As Prop"' 
+      :header='"Dynamic Vuex Store Key, Actions and Getter Passed As Props"' 
       :theme='"light"'
     >
       <counterDynamic 
+        :storeKey='"counterA"'
         :by='50' 
         :duration='100'
-        :counterGetter='"getCounterInteger"'
+        :counterGetter='"getCounterAInteger"'
         :incrementAction='"asyncIncrement"'
         :decrementAction='"asyncDecrement"'
       />
@@ -28,13 +17,14 @@
 
      <!-- Counter With Configurable Actions and Getters : Outputting Binary Counter Value -->
     <card 
-      :header='"Actions and Getters Passed As Prop"' 
+      :header='"Dynamic Vuex Store Key, Actions and Getter Passed As Props"' 
       :theme='"light"'
     >
       <counterDynamic 
+        :storeKey='"counterB"'
         :by='100' 
         :duration='100'
-        :counterGetter='"getCounterBinary"'
+        :counterGetter='"getCounterBBinary"'
         :incrementAction='"asyncIncrement"'
         :decrementAction='"asyncDecrement"'
       />
@@ -53,7 +43,6 @@
 
 <script>
   import card from '@/components/card.vue'
-  import counterStatic from '@/components/counter.vue'
   import counterDynamic from '@/components/counterDynamic.vue'
   import stateDump from '@/components/stateDump.vue'
 
@@ -61,7 +50,6 @@
     name: 'CountersView',
     components: {
       card,
-      counterStatic,
       counterDynamic,
       stateDump
     }
