@@ -2,7 +2,7 @@
   <div class="home">
     <!-- Counter With Configurable Actions and Getters : Outputting Integer Counter Value -->
     <card 
-      :header='"Dynamic Vuex Store Key, Actions and Getter Passed As Props"' 
+      :header='"Vuex Store Key, Actions and Getter Passed As Props"' 
       :theme='"light"'
     >
       <counterDynamic 
@@ -16,7 +16,7 @@
 
     <!-- Counter With Configurable Actions and Getters : Outputting Binary Counter Value -->
     <card 
-      :header='"Dynamic Vuex Store Key, Actions and Getter Passed As Props"' 
+      :header='"Vuex Store Key, Actions and Getter Passed As Props"' 
       :theme='"light"'
     >
       <counterDynamic 
