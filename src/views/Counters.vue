@@ -6,38 +6,35 @@
       :theme='"light"'
     >
       <counterDynamic 
+        :by='50'
         :storeKey='"counterA"'
-        :by='50' 
-        :duration='100'
-        :counterGetter='"getCounterAInteger"'
-        :incrementAction='"asyncIncrement"'
-        :decrementAction='"asyncDecrement"'
+        :counterGetter='"getCounterA"'
+        :incrementAction='"incrementCounterVal"'
+        :decrementAction='"decrementCounterVal"'
       />
     </card>
 
-     <!-- Counter With Configurable Actions and Getters : Outputting Binary Counter Value -->
+    <!-- Counter With Configurable Actions and Getters : Outputting Binary Counter Value -->
     <card 
       :header='"Dynamic Vuex Store Key, Actions and Getter Passed As Props"' 
       :theme='"light"'
     >
       <counterDynamic 
+        :by='50'
         :storeKey='"counterB"'
-        :by='100' 
-        :duration='100'
-        :counterGetter='"getCounterBBinary"'
-        :incrementAction='"asyncIncrement"'
-        :decrementAction='"asyncDecrement"'
+        :counterGetter='"getCounterB"'
+        :incrementAction='"incrementCounterVal"'
+        :decrementAction='"decrementCounterVal"'
       />
     </card>
 
     <!-- Displaying the Actual Vuex State Value -->
-     <card 
+    <card 
       :header='"State Dump"' 
       :theme='"dark"'
     >
-      <stateDump/>
+      <stateDump />
     </card>
-    
   </div>
 </template>
 
