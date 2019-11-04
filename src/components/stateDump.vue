@@ -1,12 +1,7 @@
 <template>
-  <card 
-    :header='"Dynamic Vuex Store Key, Actions and Getter Passed As Props"' 
-    :theme='"light"'
-  >
-    <div class="stateData">
-      {{stateDump}}
-    </div>
-  </card>
+  <div class="stateData">
+    {{stateDump}}
+  </div>
 </template>
 
 <script>

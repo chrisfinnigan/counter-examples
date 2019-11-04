@@ -1,54 +1,37 @@
 <template>
   <div class="home">
+    <!-- Counter with hard coded increment and decrement values -->
+    <card 
+      :header='"Counter with hard coded increment and decrement values"' 
+      :theme='"light"'
+    >
+      <counter />
+    </card>
+
+  
     <!-- Counter With Configurable Actions and Getters : Outputting Integer Counter Value -->
     <card 
-      :header='"Vuex Store Key, Actions and Getter Passed As Props"' 
+      :header='"Counter with variable increment / decrement value passed by props"' 
       :theme='"light"'
     >
-      <counterDynamic 
-        :by='50'
-        :storeKey='"counterA"'
-        :counterGetter='"getCounterA"'
-        :incrementAction='"incrementCounterVal"'
-        :decrementAction='"decrementCounterVal"'
+      <counterProps 
+        :by='10'
       />
-    </card>
-
-    <!-- Counter With Configurable Actions and Getters : Outputting Binary Counter Value -->
-    <card 
-      :header='"Vuex Store Key, Actions and Getter Passed As Props"' 
-      :theme='"light"'
-    >
-      <counterDynamic 
-        :by='50'
-        :storeKey='"counterB"'
-        :counterGetter='"getCounterB"'
-        :incrementAction='"incrementCounterVal"'
-        :decrementAction='"decrementCounterVal"'
-      />
-    </card>
-
-    <!-- Displaying the Actual Vuex State Value -->
-    <card 
-      :header='"State Dump"' 
-      :theme='"dark"'
-    >
-      <stateDump />
     </card>
   </div>
 </template>
 
 <script>
   import card from '@/components/card.vue'
-  import counterDynamic from '@/components/counterDynamic.vue'
-  import stateDump from '@/components/stateDump.vue'
-
+  import counter from '@/components/counter.vue'
+  import counterProps from '@/components/counterProps.vue'
+  
   export default {
     name: 'CountersView',
     components: {
       card,
-      counterDynamic,
-      stateDump
+      counter,
+      counterProps
     }
   }
 </script>

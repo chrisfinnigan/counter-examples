@@ -1,25 +1,31 @@
 <template>
   <div class="counter">
-    <button @click='decrement()'>-1</button>
+    <button @click='decrement(by)'>-{{by}}</button>
     <span class="counterOutput">{{count}}</span>
-    <button @click='increment()'>+1</button> 
+    <button @click='increment(by)'>+{{by}}</button> 
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Counter',
-    data: () => {
+    name: 'CounterProps',
+    data: function () {
       return {
         count: 0
       }
     },
     methods: {
-      increment() {
-        this.count++
+      increment (by) {
+        this.count = this.count + by
       },
-      decrement() {
-        this.count--
+      decrement (by) {
+        this.count = this.count - by
+      }
+    },
+    props: {
+      by: {
+        required: true,
+        type: Number
       }
     }
   }
