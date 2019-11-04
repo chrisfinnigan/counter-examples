@@ -4,8 +4,8 @@
 
 ```
 A series of example counters which show:
-1. Basic Vuex Usage
-2. Making Vuex Components More Reusable
+1. Counter with hard coded increment and decrement values
+2. Counter with variable increment / decrement values passed by prop
 ```
 
 ### Setup
