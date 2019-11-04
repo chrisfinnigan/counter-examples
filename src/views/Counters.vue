@@ -11,7 +11,7 @@
   
     <!-- Counter With Configurable Actions and Getters : Outputting Integer Counter Value -->
     <card 
-      :header='"Counter with variable increment / decrement value passed by props"' 
+      :header='"Counter with variable increment / decrement values passed by prop"' 
       :theme='"light"'
     >
       <counterProps 
